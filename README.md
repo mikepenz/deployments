@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: start deployment
-      uses: bobheadxi/deployments@v1
+      uses: mikepenz/deployments@v2
       id: deployment
       with:
         step: start
@@ -37,7 +37,7 @@ jobs:
       # ...
 
     - name: update deployment status
-      uses: bobheadxi/deployments@v1
+      uses: mikepenz/deployments@v2
       if: always()
       with:
         step: finish
