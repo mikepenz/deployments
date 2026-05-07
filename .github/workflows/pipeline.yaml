@@ -21,7 +21,7 @@ jobs:
       - run: npm ci
       - run: npm audit --audit-level=high
       - run: npm run prettier:check
-      - run: npm run build:check
+      - run: npm run package:check
 
   commit-dist:
     needs: checks
@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: '24'
           cache: 'npm'
-      - run: npm ci && npm run build
+      - run: npm ci && npm run build && npm run package
       - name: Commit rebuilt dist
         run: |
           git config user.name "Mike Penz"
@@ -73,7 +73,7 @@ jobs:
           node-version: '24'
           cache: 'npm'
       - run: npm ci
-      - run: npm run build
+      - run: npm run build && npm run package
 
       - name: extract branch name
         id: get_branch

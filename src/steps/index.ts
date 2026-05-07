@@ -1,17 +1,17 @@
 import { setOutput, error } from "@actions/core";
 import { GitHub } from "@actions/github/lib/utils";
 
-import { DeploymentContext } from "../lib/context";
-import deactivateEnvironment from "../lib/deactivate";
-import deleteEnvironment from "../lib/delete";
+import { DeploymentContext } from "../lib/context.js";
+import deactivateEnvironment from "../lib/deactivate.js";
+import deleteEnvironment from "../lib/delete.js";
 import {
   getBooleanInput,
   getOptionalInput,
   getRequiredInput,
-} from "../lib/input";
+} from "../lib/input.js";
 
-import createStart, { StartArgs } from "./start";
-import createFinish, { FinishArgs } from "./finish";
+import createStart, { StartArgs } from "./start.js";
+import createFinish, { FinishArgs } from "./finish.js";
 
 export enum Step {
   Start = "start",

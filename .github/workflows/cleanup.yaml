@@ -20,7 +20,7 @@ jobs:
           node-version: '24'
           cache: 'npm'
       - run: npm ci
-      - run: npm run build
+      - run: npm run build && npm run package
 
       - name: extract branch name
         id: get_branch

@@ -1,7 +1,7 @@
 import { GitHub } from "@actions/github/lib/utils";
 
-import { DeploymentContext } from "./context";
-import deactivateEnvironment from "./deactivate";
+import { DeploymentContext } from "./context.js";
+import deactivateEnvironment from "./deactivate.js";
 
 /**
  * Delete all deployments within this environment.

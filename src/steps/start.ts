@@ -1,7 +1,7 @@
 import { GitHub } from "@actions/github/lib/utils";
 
-import { DeploymentContext } from "../lib/context";
-import deactivateEnvironment from "../lib/deactivate";
+import { DeploymentContext } from "../lib/context.js";
+import deactivateEnvironment from "../lib/deactivate.js";
 
 export type StartArgs = {
   deploymentID?: string;
