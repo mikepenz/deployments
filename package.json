@@ -1,31 +1,33 @@
 {
-  "name": "@bobheadxi/deployments",
+  "name": "@mikepenz/deployments",
   "version": "0.0.0",
   "private": true,
   "description": "GitHub Action for working painlessly with deployment statuses",
-  "main": "dist/index.js",
+  "main": "lib/main.js",
+  "type": "module",
   "scripts": {
+    "build": "tsc",
     "prettier": "prettier src --write",
     "prettier:check": "prettier src --check",
-    "build": "ncc build src/main.ts --out dist --minify --source-map --license LICENSES",
-    "build:check": "npm run build && git diff --quiet dist",
-    "test": "npm run prettier:check & npm run build:check"
+    "package": "ncc build --source-map --license LICENSES",
+    "package:check": "npm run build && npm run package && git diff --quiet dist",
+    "all": "npm run build && npm run prettier:check && npm run package",
+    "test": "npm run prettier:check && npm run package:check"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bobheadxi/deployments.git"
+    "url": "git+https://github.com/mikepenz/deployments.git"
   },
-  "author": "bobheadxi",
+  "author": "mikepenz",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "1.10.1",
-    "@actions/github": "6.0.0"
+    "@actions/core": "3.0.1",
+    "@actions/github": "9.1.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "0.38.1",
-    "@types/js-yaml": "4.0.9",
-    "@types/node": "20.11.30",
-    "prettier": "3.2.5",
-    "typescript": "5.4.3"
+    "@vercel/ncc": "0.38.4",
+    "@types/node": "24.7.1",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
   }
 }

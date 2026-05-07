@@ -7,12 +7,14 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: update tag
-      run: |
-        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        git config --global user.name "${GITHUB_ACTOR}"
-        git tag -fa v1 -m "update v1 tag"
-        git push origin v1 --force
+      - name: checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+      - name: update tag
+        run: |
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global user.name "${GITHUB_ACTOR}"
+          git tag -fa v1 -m "update v1 tag"
+          git push origin v1 --force

@@ -1,7 +1,7 @@
 import { GitHub } from "@actions/github/lib/utils";
 
-import { DeploymentContext } from "../lib/context";
-import deactivateEnvironment from "../lib/deactivate";
+import { DeploymentContext } from "../lib/context.js";
+import deactivateEnvironment from "../lib/deactivate.js";
 
 export type StartArgs = {
   deploymentID?: string;
@@ -12,7 +12,7 @@ export type StartArgs = {
 async function createStart(
   github: InstanceType<typeof GitHub>,
   context: DeploymentContext,
-  stepArgs: StartArgs
+  stepArgs: StartArgs,
 ) {
   if (stepArgs.override) {
     await deactivateEnvironment(github, context);
@@ -52,7 +52,7 @@ async function createStart(
   } else {
     deploymentID = parseInt(stepArgs.deploymentID, 10);
     log.info(
-      `initializing deployment ${deploymentID} for ${environment} @ ${ref}`
+      `initializing deployment ${deploymentID} for ${environment} @ ${ref}`,
     );
   }
   log.info(`created deployment ${deploymentID} for ${environment} @ ${ref}`);

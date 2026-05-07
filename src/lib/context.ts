@@ -1,6 +1,6 @@
 import { context } from "@actions/github";
-import { getBooleanInput, getOptionalInput, getRequiredInput } from "./input";
-import Logger from "./log";
+import { getBooleanInput, getOptionalInput, getRequiredInput } from "./input.js";
+import Logger from "./log.js";
 
 export interface DeploymentContext {
   ref: string;

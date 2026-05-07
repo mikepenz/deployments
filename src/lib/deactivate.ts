@@ -1,6 +1,6 @@
 import { GitHub } from "@actions/github/lib/utils";
 
-import { DeploymentContext } from "./context";
+import { DeploymentContext } from "./context.js";
 
 /**
  * Mark all deployments within this environment as `inactive`.
