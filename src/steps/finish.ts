@@ -14,7 +14,7 @@ export type FinishArgs = {
 async function createFinish(
   github: InstanceType<typeof GitHub>,
   context: DeploymentContext,
-  stepArgs: FinishArgs
+  stepArgs: FinishArgs,
 ) {
   const {
     log,
@@ -39,7 +39,7 @@ async function createFinish(
     return;
   }
   log.info(
-    `finishing deployment for ${stepArgs.deploymentID} with status ${stepArgs.status}`
+    `finishing deployment for ${stepArgs.deploymentID} with status ${stepArgs.status}`,
   );
 
   // Set cancelled jobs to inactive environment

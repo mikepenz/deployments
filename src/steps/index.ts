@@ -23,7 +23,7 @@ export enum Step {
 export async function run(
   step: Step,
   github: InstanceType<typeof GitHub>,
-  context: DeploymentContext
+  context: DeploymentContext,
 ) {
   const { log, coreArgs } = context;
 
@@ -48,7 +48,7 @@ export async function run(
           const { deploymentID, statusID } = await createStart(
             github,
             context,
-            stepArgs
+            stepArgs,
           );
           setOutput("deployment_id", deploymentID);
           setOutput("status_id", statusID);
@@ -73,7 +73,7 @@ export async function run(
           const { statusID } = (await createFinish(
             github,
             context,
-            stepArgs
+            stepArgs,
           )) || { statusID: -1 };
           setOutput("status_id", statusID);
         }
