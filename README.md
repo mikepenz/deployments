@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: start deployment
-      uses: mikepenz/deployments@v2
+      uses: mikepenz/deployments@v3
       id: deployment
       with:
         step: start
@@ -37,7 +37,7 @@ jobs:
       # ...
 
     - name: update deployment status
-      uses: mikepenz/deployments@v2
+      uses: mikepenz/deployments@v3
       if: always()
       with:
         step: finish
@@ -112,7 +112,7 @@ jobs:
   deploy:
     steps:
     - name: start deployment
-      uses: bobheadxi/deployments@v1
+      uses: mikepenz/deployments@v3
       id: deployment
       with:
         step: start
@@ -140,7 +140,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: start deployment
-      uses: bobheadxi/deployments@v1
+      uses: mikepenz/deployments@v3
       id: deployment
       with:
         step: start
@@ -189,7 +189,7 @@ jobs:
       # ...
 
     - name: update deployment status
-      uses: bobheadxi/deployments@v1
+      uses: mikepenz/deployments@v3
       if: always()
       with:
         step: finish
@@ -237,7 +237,7 @@ jobs:
       # ...
 
     - name: mark environment as deactivated
-      uses: bobheadxi/deployments@v1
+      uses: mikepenz/deployments@v3
       with:
         step: deactivate-env
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -268,7 +268,7 @@ If you run into an problems or have any questions, feel free to open an [issue](
 
 ## Migrating to v1
 
-`bobheadxi/deployments@v1` makes the following breaking changes from `v0.6.x`:
+`mikepenz/deployments@v3` makes the following breaking changes from `v0.6.x`:
 
 - **CHANGED: `no_override` is now `override`**, and the default behaviour is `override: true` in `step: finish` (`step: start` behaviour remains unchanged, but you can now set `override: true` on it now as well).
 - **CHANGED: `log_args` is now `debug`**, but does the same thing as before.
@@ -280,7 +280,7 @@ Then you can change your workflow to target the `v1` tag, and automatically rece
 
 ```diff
 - uses: bobheadxi/deployments@v0.6.2
-+ uses: bobheadxi/deployments@v1
++ uses: mikepenz/deployments@v3
 ```
 
 ## Migrating to v1.2.0
