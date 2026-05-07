@@ -1,5 +1,5 @@
 {
-  "name": "@bobheadxi/deployments",
+  "name": "@mikepenz/deployments",
   "version": "0.0.0",
   "private": true,
   "description": "GitHub Action for working painlessly with deployment statuses",
@@ -16,9 +16,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bobheadxi/deployments.git"
+    "url": "git+https://github.com/mikepenz/deployments.git"
   },
-  "author": "bobheadxi",
+  "author": "mikepenz",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "3.0.1",
