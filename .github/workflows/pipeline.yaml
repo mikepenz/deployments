@@ -67,6 +67,7 @@ jobs:
   integration-tests:
     runs-on: ubuntu-latest
     needs: checks
+    if: github.event.pull_request.head.repo.full_name == github.repository
     permissions:
       contents: read
       deployments: write
@@ -106,9 +107,11 @@ jobs:
       - name: parse repo name and owner
         id: parse_repo
         shell: bash
+        env:
+          REPO: ${{ github.repository }}
         run: |
-          echo "owner=$(cut -d "/" -f 1 <<<"${{ github.repository }}")" >> "$GITHUB_OUTPUT"
-          echo "name=$(cut -d "/" -f 2 <<<"${{ github.repository }}")" >> "$GITHUB_OUTPUT"
+          echo "owner=$(cut -d "/" -f 1 <<<"$REPO")" >> "$GITHUB_OUTPUT"
+          echo "name=$(cut -d "/" -f 2 <<<"$REPO")" >> "$GITHUB_OUTPUT"
 
       - name: assert deployment in progress
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
